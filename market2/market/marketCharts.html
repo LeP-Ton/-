@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>销售预测</title>
+	<!--echarts-->
+	<script src="js/vintage.js"></script>
+	<script src="js/echarts.js"></script>
+	<script src="js/roma.js"></script>
+	<script src="js/infographic.js"></script>
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+	<![endif]-->
+	<!-- The Fonts -->
+	<!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />-->
+	<!-- The Main CSS File -->
+	<link rel="stylesheet" href="CSS/style.css" />
+	<!-- jQuery -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+	<!-- Change Pattern -->
+
+	<!-- Top Panel -->
+	<div style="height:50px;background-color: #70bb2b;box-shadow:0px 0px 5px black;" class="top_panel">
+		<a href="" class="g_12 separator"><span></span></a>
+	</div>
+
+	<!--<header style="background-color: #70bb2b" class="main_header">
+		<div class="wrapper" style="width: 84%;">
+			<div class="logo">
+				<a href="#" title="Kanrisha Home">
+					<img src="Images/tramy8.png" height="40%" width="40%" alt="kanrisha_logo" />
+				</a>
+				<nav style="position:absolute;left:200px;top:50px" class="top_buttons">
+					<p><big style="color: white">&nbsp;&nbsp;销售预测</big><small style="color: white;margin-left: 122px">Powered by SITI</small></p>
+				</nav>
+			</div>
+			<div style="margin-left: 800px">
+				<img src="Images/柱状图2.png" height="60%" width="60%">
+			</div>
+			&lt;!&ndash;<nav style="float: left" class="top_buttons">
+
+			</nav>&ndash;&gt;
+		</div>
+		&lt;!&ndash;<div style="position:absolute;left:800px;top:55px">
+			<img src="Images/草丛.png" height="50%" width="50%"/>
+		</div>
+		<div style="position:absolute;left:1000px;top:5px">
+			<img src="Images/阳光.png" height="30%" width="30%"/>
+		</div>&ndash;&gt;
+
+	</header>-->
+
+
+
+	<div class="wrapper contents_wrapper">
+		
+
+		<div style="margin: auto;width: 100%;background-color: #70bb2b;box-shadow:0px 0px 5px black;" class="contents">
+			<div class="grid_wrapper">
+				<!--<img style="float: left;" src="Images/tramy8.png" height="10%" width="10%" alt="kanrisha_logo" />-->
+				<div class="g_12 contents_header">
+					<img style="float: left;" src="Images/logo5.png" height="20%" width="20%" alt="kanrisha_logo" />
+					<div class="label">关于销售预测：销售预测是指对未来特定时间内，全部产品或特定产品的销售数量与销售金额的估计。
+						销售预测是在充分考虑未来各种影响因素的基础上，结合本企业的销售实绩，通过一定的分析方法提出切实可行的销售目标。</div>
+				</div>
+				<!--<div class="g_12 contents_header">-->
+					<!--&lt;!&ndash;<h3 class="i_16_dashboard tab_label">关于销售预测:</h3>&ndash;&gt;-->
+					<!--<div><span class="label">关于销售预测：销售预测是指对未来特定时间内，全部产品或特定产品的销售数量与销售金额的估计。-->
+						<!--销售预测是在充分考虑未来各种影响因素的基础上，结合本企业的销售实绩，通过一定的分析方法提出切实可行的销售目标。</span></div>-->
+				<!--</div>-->
+
+
+				<!--<div class="g_12 separator"><span></span></div>-->
+
+				<!-- Charts -->
+				<div class="g_12">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_charts">新品定价-销量-利润预测</h4>
+					</div>
+					<div class="widget_contents">
+						<div id="chart1" class="charts">
+							<script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart1'),'vintage');
+
+
+                                //            app.title = '折柱混合';
+
+                                option = {
+//                                    title : {
+//                                        text: '新品定价-销量-利润预测',
+//                                    },
+                                    tooltip: {
+                                        trigger: 'axis',
+                                        axisPointer: {
+                                            type: 'cross',
+                                            crossStyle: {
+                                                color: '#999'
+                                            }
+                                        }
+                                    },
+                                    legend: {
+                                        data:['销量','利润率'],
+                                        x:'right'
+                                    },
+                                    xAxis: [
+                                        {
+                                            type: 'category',
+                                            data: ['1元','1.1元','1.2元','1.3元','1.4元','1.5元','1.6元','1.7元','1.8元','1.9元','2.0元'],
+                                            axisPointer: {
+                                                type: 'shadow'
+                                            }
+                                        }
+                                    ],
+                                    yAxis: [
+                                        {
+                                            type: 'value',
+                                            name: '销量',
+                                            min: 0,
+                                            max: 250,
+                                            interval: 50,
+                                            axisLabel: {
+                                                formatter: '{value} 件'
+                                            }
+                                        },
+                                        {
+                                            type: 'value',
+                                            name: '利润率',
+                                            min: 20,
+                                            max: 45,
+                                            interval: 5,
+                                            axisLabel: {
+                                                formatter: '{value} %'
+                                            }
+                                        }
+                                    ],
+                                    series: [
+                                        {
+                                            name:'销量',
+                                            type:'bar',
+                                            data:[220, 209, 203, 173, 167, 156, 132, 115, 112, 103, 95]
+                                        },
+                                        {
+                                            name:'利润率',
+                                            type:'line',
+                                            yAxisIndex: 1,
+                                            data:[22.0, 22.2, 23.3, 24.5, 26.3, 30.2, 40.3, 43.4, 43.0, 36.5, 32.0, 26.2]
+                                        }
+                                    ]
+                                };
+
+
+
+
+
+                                // 使用刚指定的配置项和数据显示图表。
+                                myChart.setOption(option);
+							</script>
+						</div>
+					</div>
+				</div>
+
+				<!-- Horizontal Bars -->
+				<div class="g_6">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_bars">季度销量预测</h4>
+					</div>
+					<div class="widget_contents">
+						<div id="chart2" class="h_bars">
+							<script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart2'),'vintage');
+                                option = {
+
+                                    legend: {
+//										bottom: '85%',
+//										itemWidth: 20,
+//										itemHeight: 10,
+//										itemGap: 10,
+////                  orient: 'vertical',
+//										textStyle: {
+//											fontSize: 10
+//										}
+                                    },
+                                    tooltip: {},
+                                    dataset: {
+                                        source: [
+                                            ['product', '第一季度', '第二季度', '第三季度', '第四季度'],
+                                            ['生鲜制品', 4.1, 3.4, 6.1, 5.3],
+                                            ['常温产品', 8.5, 9.1, 8.7, 8.1],
+//                      ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4]
+                                        ]
+                                    },
+                                    xAxis: [
+                                        {type: 'category', gridIndex: 0},
+                                        {type: 'category', gridIndex: 1}
+                                    ],
+                                    yAxis: [
+                                        {gridIndex: 0,
+                                            axisLabel: {
+                                                formatter: '{value} 万件'
+                                            }},
+                                        {gridIndex: 1,
+                                            axisLabel: {
+                                                formatter: '{value} 万件'
+                                            }}
+                                    ],
+                                    grid: [
+                                        {bottom: '55%'},
+                                        {top: '55%'}
+                                    ],
+                                    series: [
+                                        // These series are in the first grid.
+                                        {type: 'bar', seriesLayoutBy: 'row'},
+                                        {type: 'bar', seriesLayoutBy: 'row'},
+//                  {type: 'bar', seriesLayoutBy: 'row'},
+                                        // These series are in the second grid.
+                                        {type: 'bar', xAxisIndex: 1, yAxisIndex: 1},
+                                        {type: 'bar', xAxisIndex: 1, yAxisIndex: 1},
+                                        {type: 'bar', xAxisIndex: 1, yAxisIndex: 1},
+                                        {type: 'bar', xAxisIndex: 1, yAxisIndex: 1}
+                                    ]
+                                };
+
+
+
+                                myChart.setOption(option);
+							</script>
+						</div>
+					</div>
+				</div>
+
+				<!-- Vertical Bars -->
+				<div class="g_6">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_pie">干货制品销量比例预测</h4>
+					</div>
+					<div class="widget_contents">
+						<div id="chart3" class="v_bars">
+							<script type="text/javascript">
+								var myChart = echarts.init(document.getElementById('chart3'),'vintage');
+								option = {
+//									title : {
+//										text: '干货制品日销量比例预测',
+//										x:'center'
+//									},
+									tooltip : {
+										trigger: 'item',
+										formatter: "{a} <br/>{b} :{d}%"
+									},
+									legend: {
+										orient: 'vertical',
+										left: 'left',
+										data: ['传统腐竹','绿豆粉丝','红薯粉丝','豆腐衣','大豆腐衣']
+									},
+									series : [
+										{
+											name: '日销量',
+											type: 'pie',
+											radius : '55%',
+											center: ['50%', '60%'],
+											data:[
+												{value:1335, name:'绿豆粉丝'},
+												{value:510, name:'传统腐竹'},
+												{value:1696, name:'红薯粉丝'},
+												{value:835, name:'豆腐衣'},
+												{value:548, name:'大豆腐衣'}
+											],
+											itemStyle: {
+												emphasis: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												}
+											}
+										}
+									]
+								};
+
+								myChart.setOption(option);
+
+							</script>
+						</div>
+					</div>
+				</div>
+
+				<!-- Real-Time Charts -->
+				<div class="g_12">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_bars">高房豆腐日销量预测</h4>
+					</div>
+					<div class="widget_contents">
+						<div id="chart4" class="realtime_charts">
+							<script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart4'));
+
+                                option = {
+//                                    title: {
+//                                        text: '高房豆腐日销量预测',
+////                        subtext: 'From ExcelHome',
+////                        sublink: 'http://e.weibo.com/1341556070/AjQH99che'
+//                                    },
+                                    tooltip : {
+                                        trigger: 'axis',
+                                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                                            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                        },
+                                        formatter: function (params) {
+                                            var tar = params[1];
+                                            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+                                        }
+                                    },
+                                    grid: {
+                                        left: '3%',
+                                        right: '4%',
+                                        bottom: '3%',
+                                        containLabel: true
+                                    },
+                                    xAxis: {
+                                        type : 'category',
+                                        splitLine: {show:false},
+                                        data : ['总销量','豆腐干','老豆腐','小油豆腐','豆腐丝','内酯豆腐']
+                                    },
+                                    yAxis: {
+                                        type : 'value',
+										name:'销量',
+                                        axisLabel: {
+                                            formatter: '{value} 件'
+                                        }
+                                    },
+                                    series: [
+                                        {
+                                            name: '辅助',
+                                            type: 'bar',
+                                            stack:  '总量',
+                                            itemStyle: {
+                                                normal: {
+                                                    barBorderColor: 'rgba(0,0,0,0)',
+                                                    color: 'rgba(0,0,0,0)'
+                                                },
+                                                emphasis: {
+                                                    barBorderColor: 'rgba(0,0,0,0)',
+                                                    color: 'rgba(0,0,0,0)'
+                                                }
+                                            },
+                                            data: [0, 1388, 876, 619, 316, 0]
+                                        },
+                                        {
+                                            name: '销量',
+                                            type: 'bar',
+                                            stack: '总量',
+                                            label: {
+                                                normal: {
+                                                    show: true,
+                                                    position: 'inside'
+                                                }
+                                            },
+                                            data:[1696, 306, 512, 257, 303, 316]
+                                        }
+                                    ]
+                                };
+
+
+
+                                myChart.setOption(option);
+							</script>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pie Charts -->
+				<!--<div class="g_6">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_pie">Pie Charts</h4>
+					</div>
+					<div class="widget_contents">
+						<div class="pie_charts">
+						</div>
+					</div>
+				</div>
+
+				&lt;!&ndash; Donut Charts &ndash;&gt;
+				<div class="g_6">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_pie">Donut Charts</h4>
+					</div>
+					<div class="widget_contents">
+						<div class="donut_charts"></div>
+					</div>
+				</div>-->
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
